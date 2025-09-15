@@ -4,7 +4,7 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="section">
       <div className="contact-container fade-in">
-        <h2 className="contact-title">함께 만들어요</h2>
+        <h2 className="contact-title">함께 만들어요 ✨</h2>
         <p className="contact-subtitle">흥미로운 프로젝트나 협업 제안이 있으시다면 언제든 연락주세요.</p>
         <div className="contact-links">
           <a href="mailto:sunny@example.com" className="contact-link glow-effect">이메일 보내기</a>
