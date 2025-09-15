@@ -1,22 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useTypingAnimation } from '../hooks/useTypingAnimation';
 
 const Hero: React.FC = () => {
-  const [displayText, setDisplayText] = useState('');
-  const fullText = 'CREATIVE\nDEVELOPER';
-
-  useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index < fullText.length) {
-        setDisplayText(fullText.slice(0, index + 1));
-        index++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 100);
-
-    return () => clearInterval(timer);
-  }, []);
+  const typingTexts = [
+    'CLOUD ENGINEER',
+    'DEVOPS SPECIALIST', 
+    'INFRASTRUCTURE BUILDER',
+    'AWS EXPERT'
+  ];
+  
+  const displayText = useTypingAnimation(typingTexts, 150, 3000);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -34,8 +27,9 @@ const Hero: React.FC = () => {
       </div>
       
       <div className="hero-content fade-in">
-        <h1 className="hero-title" style={{ whiteSpace: 'pre-line' }}>
+        <h1 className="hero-title">
           {displayText}
+          <span className="typing-cursor">|</span>
         </h1>
         <p className="hero-subtitle">클라우드 인프라를 구축하는 클라우드 엔지니어</p>
         <div className="cta-buttons">
